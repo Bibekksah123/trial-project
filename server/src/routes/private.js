@@ -12,17 +12,17 @@ const privateRoutes = express.Router()
 privateRoutes.post("/login",loginAdmin)
 privateRoutes.post("/singup", signupAdmin)
 
-privateRoutes.get("/leads", getLeads);
-privateRoutes.patch("/leads/:id", updateLeadStatus);
+privateRoutes.get("/leads",isAuthenticated, getLeads);
+privateRoutes.patch("/leads/:id",isAuthenticated, updateLeadStatus);
 
-privateRoutes.post("/classes/:id", updateClass)
-privateRoutes.post("/classess/create", createClass)
-privateRoutes.post("/clases/delete/:id", deleteClass)
+privateRoutes.post("/classes/:id",isAuthenticated, updateClass)
+privateRoutes.post("/classess/create",isAuthenticated, createClass)
+privateRoutes.post("/clases/delete/:id",isAuthenticated, deleteClass)
 privateRoutes.get("/classes", getClasses)
 
-privateRoutes.post("/create/trainer", createTrainer)
+privateRoutes.post("/create/trainer",isAuthenticated, createTrainer)
 
-privateRoutes.post("/plans",createPlan)
+privateRoutes.post("/plans",isAuthenticated,createPlan)
 
 module.exports=privateRoutes
 
