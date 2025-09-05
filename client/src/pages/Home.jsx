@@ -4,6 +4,7 @@ import Select from "../components/Select";
 import Input from "../components/Input";
 import React from "react";
 import axios from "axios";
+import { apiKey } from "../api/apikey";
 
 
 export default function Home() {
@@ -16,7 +17,7 @@ export default function Home() {
   const status="new"
 
   const handleSubmit = async () => {
-    await axios.post("http://localhost:7002/api/leads", {
+    await axios.post(`${apiKey}/api/leads`, {
       name,
       phone,
       email,

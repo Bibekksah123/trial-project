@@ -2,6 +2,7 @@ import axios from "axios";
 import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
+import { apiKey } from "../../../api/apikey";
 
 
 export default function LeadsTable({ leads, updateLead }) {
@@ -10,7 +11,7 @@ export default function LeadsTable({ leads, updateLead }) {
   
     const getClasses = async () => {
       try {
-        const res = await axios.get("http://localhost:7002/api/auth/leads");
+        const res = await axios.get(`${apiKey}/api/auth/leads`);
         setGetLead(res.data);
       } catch (err) {
         console.error("Error fetching classes:", err);

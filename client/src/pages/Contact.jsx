@@ -2,6 +2,7 @@ import { useState } from "react";
 import Card from "../components/Cards";
 import React from "react";
 import axios from "axios"
+import { apiKey } from "../api/apikey";
 
 export default function Contact() {
   const [name, setName] = useState("");
@@ -9,7 +10,7 @@ export default function Contact() {
   const [interest, setInterest] = useState("Zumba");
 
   const handleSubmit =async () => {
-     await axios.post("http://localhost:7002/api/contact", { name, phone, interest })
+     await axios.post(`${apiKey}/api/contact`, { name, phone, interest })
     setName("");
     setPhone("");
     alert("Contact submitted!");

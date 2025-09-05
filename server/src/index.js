@@ -12,7 +12,7 @@ connectTodb()
 
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin:process.env.websiteURl,
     methods: ["GET", "POST", "PUTCH"],
     credentials: true,
   })

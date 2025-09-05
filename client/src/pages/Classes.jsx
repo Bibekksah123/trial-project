@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
+import { apiKey } from "../api/apikey";
 
 export default function Classes() {
   const [classes, setClasses] = useState([]);
@@ -7,7 +8,7 @@ export default function Classes() {
 
   const getClasses = async () => {
     try {
-      const res = await axios.get("http://localhost:7002/api/auth/classes");
+      const res = await axios.get(`${apiKey}/api/auth/classes`);
       setClasses(res.data);
     } catch (err) {
       console.error("Error fetching classes:", err);

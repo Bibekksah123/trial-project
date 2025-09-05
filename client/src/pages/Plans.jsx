@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Card from "../components/Cards";
+import { apiKey } from "../api/apikey";
 
 export default function Plans() {
   const [plans, setPlans] = useState([]); // ✅ use array, not string
 
   const getLeadPlans = async () => {
     try {
-      const res = await axios.get("http://localhost:7002/api/plans");
+      const res = await axios.get(`${apiKey}/api/plans`);
       setPlans(res.data);
     } catch (err) {
       console.error("Error fetching plans:", err);
